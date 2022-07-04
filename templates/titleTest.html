@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catchy Title</title>
+    <style>
+      body {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.65),
+            rgba(0, 0, 0, 0.65)
+          ),
+          url("/static/bgimg.png");
+      }
+      .mid-ele {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* align-content: space-between; */
+      }
+      .form-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .title-txt{
+        color: #a79e84;
+        font-size: 2rem;
+      }
+      .in-title{
+        text-align: center;
+        padding: 0.4rem 0rem;
+        margin-bottom: 0.7rem;
+      }
+      .form-btn {
+        margin-top: 1rem;
+        background-color: #a79e84;
+        border-radius: 1rem;
+        padding: 0.5rem 1rem;
+      }
+      .form-output {
+        padding-top: 2rem;
+        font-size: 2rem;
+        color: #a79e84;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mid-ele">
+      <form action="{{url_for('predicttitle')}}" method="post" class="form-box">
+      <p class="title-txt">Title You Think Of</p>
+      <input type="text" name="titleTxt" size = 50 class="in-title"/>
+      <div>
+        <button type="submit" class="form-btn">Score</button>
+      </div>
+      <div class="form-output">{{titlerating}}</div>
+      <div class="form-output">{{ratetext}}</div>
+    </div>
+  </body>
+</html>

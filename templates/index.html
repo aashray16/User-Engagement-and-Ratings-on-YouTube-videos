@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Youtube Ratings</title>
+    <style>
+      body {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.65),
+            rgba(0, 0, 0, 0.65)
+          ),
+          url("/static/bgimg.png");
+      }
+      .mid-ele {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* align-content: space-between; */
+      }
+      .form-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .form-label {
+        font-size: 2rem;
+        text-align: center;
+        color: #a79e84;
+        padding-bottom: 1rem;
+      }
+      .form-input {
+        text-align: center;
+        padding: 0.4rem 0rem;
+      }
+      .form-btn {
+        margin-top: 1rem;
+        background-color: #a79e84;
+        border-radius: 1rem;
+        padding: 0.5rem 1rem;
+      }
+      .form-output {
+        padding: 2rem 1rem;
+        font-size: 2rem;
+        color: #a79e84;
+      }
+      .link-btn:link,
+      .link-btn:visited {
+        background-color: #a79e84;
+        padding: 14px 25px;
+        color: black;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 1rem;
+        margin: 0rem 1rem;
+      }
+
+      .link-btn:hover,
+      .link-btn:active {
+        background-color: #a79e84;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mid-ele">
+      <form
+        action="{{url_for('predictratings')}}"
+        method="post"
+        class="form-box"
+      >
+        <label class="form-label">Enter your Video ID</label>
+        <input type="text" name="videoID" class="form-input" />
+
+        <button type="submit" class="form-btn">Rate</button>
+
+        <div class="form-output">{{rating}}</div>
+        <br />
+      </form>
+
+      <div>
+        <a target="_blank" class="link-btn" href="{{url_for('titleTest')}}"
+          >Title</a
+        >
+        <a target="_blank" class="link-btn" href="{{url_for('viewComments')}}"
+          >Comments</a
+        >
+      </div>
+    </div>
+  </body>
+</html>
